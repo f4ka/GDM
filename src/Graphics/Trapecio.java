@@ -4,11 +4,15 @@
  */
 package Graphics;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -139,7 +143,7 @@ public class Trapecio {
 		series.add(trapecios.get(i).getPtoC()[0], trapecios.get(i).getPtoC()[1]);
 		series.add(trapecios.get(i).getPtoD()[0], trapecios.get(i).getPtoD()[1]);
 		series.add(trapecios.get(i).getPtoA()[0], trapecios.get(i).getPtoA()[1]);
-		
+
 		
 		dataset.addSeries(series);
 		
@@ -148,6 +152,16 @@ public class Trapecio {
 				"x", "y", dataset, PlotOrientation.VERTICAL, true,
 				true, false);
 
+                XYPlot plot = chart.getXYPlot();
+                XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+                renderer.setSeriesPaint(trapecios.size()-1, Color.WHITE);
+                renderer.setSeriesStroke(trapecios.size()-1, new BasicStroke(6.0f));
+                plot.setRenderer(renderer);
+                plot.setBackgroundPaint(Color.DARK_GRAY);
+                plot.setRangeGridlinesVisible(true);
+                plot.setRangeGridlinePaint(Color.BLACK); 
+                plot.setDomainGridlinesVisible(true);
+                plot.setDomainGridlinePaint(Color.BLACK);
 		/*
 		 * ChartFrame frame = new ChartFrame("prueba", chart);
 		 * frame.setVisible(true); frame.setSize(300,300);
