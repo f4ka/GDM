@@ -4,12 +4,16 @@
  */
 package RankingDecisors;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -38,7 +42,7 @@ public class JFreeChartRanking {
         return dataCollection;
     }
     private JFreeChart createDiagram(XYDataset dataCollection){
-        JFreeChart diag=ChartFactory.createXYLineChart("", //titulo
+                JFreeChart diag=ChartFactory.createXYLineChart("", //titulo
                                                         "Elementos",//leyenda del eje x
                                                         "Importancia",//leyenda del eje y
                                                         dataCollection, //DATOS
@@ -46,6 +50,16 @@ public class JFreeChartRanking {
                                                         true, //VER TITULO DE LINEA
                                                         true, //tooltip
                                                         false); //URL
+                XYPlot plot = diag.getXYPlot();
+                XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+                renderer.setSeriesPaint(0, Color.WHITE);
+                renderer.setSeriesStroke(0, new BasicStroke(6.0f));
+                plot.setRenderer(renderer);
+                plot.setBackgroundPaint(Color.DARK_GRAY);
+                plot.setRangeGridlinesVisible(true);
+                plot.setRangeGridlinePaint(Color.BLACK); 
+                plot.setDomainGridlinesVisible(true);
+                plot.setDomainGridlinePaint(Color.BLACK);
         return diag;
     }
 }
