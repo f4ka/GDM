@@ -6,6 +6,7 @@ package Main;
 import Data.Structurs;
 import Data.StructursDecisors;
 import Graphics.MainTrapecio;
+import Graphics.Trapecio;
 import RankingDecisors.PanelRankingDecisors;
 import SaatyDecisors.GUI.*;
 import Saaty.Criteria.PanelSaatyMatriz;
@@ -182,16 +183,26 @@ public class FramePpal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
-        if(i>1){
-            rollBack.deleteLastsRecordsAddedEigenvector();
-            rollBack.showEigenvector();
-            panels.get(i-1).setVisible(false);
-            i--;
-            lblTitle.setText(Structurs.names.get(i-1));
-            panels.get(i-1).setVisible(true);
-            
+        if(i>1)
+        {
+            if(i<Structurs.names.size()){
+                rollBack.deleteLastsRecordsAddedEigenvector();
+                rollBack.showEigenvector();
+                panels.get(i-1).setVisible(false);
+                i--;
+                lblTitle.setText(Structurs.names.get(i-1));
+                panels.get(i-1).setVisible(true);
+            }
+            else{
+                if(i>Structurs.names.size()){
+                    MainTrapecio.ventana.setVisible(false);
+                    mainTrap=new MainTrapecio(this);
+                    MainTrapecio.trapecios= new ArrayList<>();
+                    panelRankingDecisors.setVisible(true);
+                }
+            }
         }
-    }//GEN-LAST:event_btnPreviousActionPerformed
+        }//GEN-LAST:event_btnPreviousActionPerformed
 
     /**
      * @param args the command line arguments
