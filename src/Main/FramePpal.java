@@ -183,13 +183,22 @@ public class FramePpal extends javax.swing.JFrame {
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         if(i>1){
+          if(i<Structurs.names.size()){
             rollBack.deleteLastsRecordsAddedEigenvector();
             rollBack.showEigenvector();
             panels.get(i-1).setVisible(false);
             i--;
             lblTitle.setText(Structurs.names.get(i-1));
             panels.get(i-1).setVisible(true);
-            
+          }
+          else{
+              if(i>Structurs.names.size()){
+                  //rollBack.deleteWeightDecisors();
+                  MainTrapecio.ventana.setVisible(false);
+                  //i--;
+                  panelRankingDecisors.setVisible(true); 
+              }
+          }
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 
