@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * @author agustin
  */
 public class MainTrapecio {
-    private static ArrayList<Trapecio> trapecios= new ArrayList<>();
+    public static ArrayList<Trapecio> trapecios= new ArrayList<>();
     public static Ventana ventana;
 
     
