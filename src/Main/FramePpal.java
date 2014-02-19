@@ -196,6 +196,7 @@ public class FramePpal extends javax.swing.JFrame {
                   //rollBack.deleteWeightDecisors();
                   MainTrapecio.ventana.setVisible(false);
                   //i--;
+                  mainTrap=new MainTrapecio(this);
                   panelRankingDecisors.setVisible(true); 
               }
           }
