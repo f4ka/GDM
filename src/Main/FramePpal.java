@@ -6,7 +6,6 @@ package Main;
 import Data.Structurs;
 import Data.StructursDecisors;
 import Graphics.MainTrapecio;
-import Graphics.Trapecio;
 import RankingDecisors.PanelRankingDecisors;
 import SaatyDecisors.GUI.*;
 import Saaty.Criteria.PanelSaatyMatriz;
