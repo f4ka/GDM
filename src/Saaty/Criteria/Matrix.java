@@ -18,7 +18,7 @@ public class Matrix {
       n=Structurs.A.length;
       length=Structurs.elements.size();
       for(int i=0; i<n; i++)
-              Structurs.A[i][i]=1;
+              Structurs.A[i][i]=1;//SOS UN TONTO FAKA
    }
    
    public void createMatrix(){
